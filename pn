@@ -1,0 +1,26 @@
+Instrucciones de uso:
+
+1.- Ver las diferencias entre Eliminator y GeoGebra.
+
+2.- Ver arquitectura de LocusEqu respecto a AlgoElements
+    2.1.- EquationParser -> EquationElements
+    2.2.- EquationRestrictionParser -> EquationRestriction
+
+3.- Traductores
+
+4.- Proceso que realiza GeoGebra
+
+5.- ¿Qué queda por hacer?
+    * PointOnPath
+      - Minor fixes in EquationElements
+    * "Variables numéricas"
+
+
+Conclusiones:
+
+* Hacer ejemplos de diameter. Éste no tiene punto de partida.
+* Volver a meter los cambios de BigRational.
+* Hablar con Markus de algoritmos que puedan consumir tiempo.
+* Mirar si añadir funciones si éstas son algebraicas.
+* PointOnPath problem, cambiar el parámetro arbitrario.
+* Si queremos cálculo simbólico, que siempre sea simbólico.
