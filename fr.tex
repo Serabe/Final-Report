@@ -9,6 +9,48 @@
 \title{LocusEqu Project}\subtitle{Final Report}
 \author{Sergio Arbeo}\date{}\maketitle
 
+\section{Brief introduction.}
 
+In my humble opinion, LocusEqu has achieved some pretty impressive
+results in its current state. However, its limitations are more important than 
+its current features.\\\\
+
+In this paper, implementation, features and limitations will be
+discussed, as well as some guidelines for overcoming some of the
+limitations.
+
+\section{Implementation.}
+
+LocusEqu classes can be found under geogebra.kernel.locusequ and
+geogebra.kernel.locusequ.arith packages.\\
+
+LocusEqu distinguish two types of AlgoElements and creates two
+different kinds of objects. Some AlgoElements are considered
+EquationElements, like AlgoJoinPoints, and other are considered
+EquationRestrictions, like AlgoPointOnPath. The main difference is
+that EquationElements does not creates any restrictions, while
+EquationRestriction does.
+
+\subsection{Scope}
+
+One of the main pillars of LocusEqu is EquationScope.This class works
+just as a variable scope in any programming language but way more
+simple.\\
+
+It contains two different scopes, one for points, relating GeoPoints
+to EquationPoints; and another one relating GeoElements to
+EquationElements. Both scopes work as maps and can create a proper
+value given the key. The algorithm for creating a new EquationPoint
+relies on a simple if with a few conditions, only one of them a bit
+complicated. On the other hand, the algorithm for creating new
+EquationElements is a bit more complicated since it uses a parser, for
+lack of a better term, explained in the next subsection.
+
+\subsection{Parsers}
+\label{ss:Parsers}
+
+There are two parsers in LocusEqu: EquationParser and
+EquationRestrictionParser. Both share the design, so only the latter
+will be explained.\\
 
 \end{document}
