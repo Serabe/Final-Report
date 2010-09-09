@@ -52,4 +52,18 @@ There are two parsers in LocusEqu: EquationParser and
 EquationRestrictionParser. Both share the design, so only the latter
 will be explained.\\
 
+EquationRestrictionParser contains a static Map from String to
+EquationRestrictionBuilder. EquationRestrictionBuilder is an interface
+containing only one method that returns an EquationRestriction from an
+AlgoElement and an EquationScope. Keys are obtained from AlgoElements'
+getClassName method.\\
+
+Those AlgoElements considered EquationElements retrieve the
+EquationNullRestrictionBuilder only instance. This object retrieves an
+EquationNullRestriction, which only generates empty EquationList.
+
+On the other hand, those AlgoElements considered to be
+EquationRestrictions retrieve an anonymous EquationBuilder that
+retrieves a proper EquationRestriction instance.
+
 \end{document}
