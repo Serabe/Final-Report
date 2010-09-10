@@ -60,10 +60,35 @@ getClassName method.\\
 
 Those AlgoElements considered EquationElements retrieve the
 EquationNullRestrictionBuilder only instance. This object retrieves an
-EquationNullRestriction, which only generates empty EquationList.
+EquationNullRestriction, which only generates empty EquationList.\\
 
 On the other hand, those AlgoElements considered to be
 EquationRestrictions retrieve an anonymous EquationBuilder that
 retrieves a proper EquationRestriction instance.
+
+\subsection{EquationAuxiliarElement}
+
+Any class implementing the empty interface EquationAuxiliarElement has
+no correspondence with any GeoElement.\\
+
+\subsection{EquationPoints}
+
+There are three basic subclasses of EquationPoint: EquationFreePoint,
+EquationDependentPoint and EquationSpecialSymbolicPoint. These
+subclasses are already explained in the wiki, so I will skip any
+explanation.\\
+
+EquationNormalPoint, EquationPointVectorPoint and EquationUnitaryPoint
+are used for creating a normal vector, applying a vector to a point
+and creating a unitary vector. They all are auxiliar elements.\\
+
+EquationMidpoint is obviously used for midpoints.\\
+
+SymbolicVector extends EquationPoint too.
+
+\subsection{EquationElements}
+
+There are three abstract classes that extend EquationElement. They are
+EquationGenericConic, EquationGenericLine and EquationGenericPolygon.
 
 \end{document}
