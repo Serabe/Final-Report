@@ -89,6 +89,70 @@ SymbolicVector extends EquationPoint too.
 \subsection{EquationElements}
 
 There are three abstract classes that extend EquationElement. They are
-EquationGenericConic, EquationGenericLine and EquationGenericPolygon.
+EquationGenericConic, EquationGenericLine and
+EquationGenericPolygon.\\
 
+These three classes can produce a restriction given a few basic data.
+
+\subsubsection{EquationGenericConic}
+
+EquationGenericConic needs an EquationExpression matrix, similar to
+the one used by GeoGebra. Subclasses need to implement computeMatrix()
+void method, which needs to call matrix setter at some point.\\
+
+EquationGenericConic also hold all polar lines requested in a hash.
+
+\subsubsection{EquationGenericLine}
+
+EquationGenericLine needs a start point and a vector. The latter can
+be given either as a SymbolicVector or as the equation parameters A, B
+and C, calling getVectorFromABC method later to get a proper
+SymbolicVector. Take a look at EquationDiameterLine for working with
+equation coefficients.
+
+\subsubsection{EquationGenericPolygon}
+
+Working with EquationGenericPolygon is even easier than working with
+EquationGenericLine, it only needs a GeoSegmentInterface array to
+work.
+
+\subsection{EquationExpression}
+
+The better way for building an EquationExpression is using the static
+methods in EquationBuilderHelpers (just use import static, for
+simplicity's sake).\\
+
+Every function is documented (even just by its name and args), so do
+not hesitate to use them.
+
+\subsection{EquationTranslator}
+
+Implementing a translator from EquationExpression to T (T understood
+as a Java generic parameter) is as easy as extend the abstract class
+EquationTranslator<T>. Its abstract methods are simple to implement
+(usually, take a look at sqrt method in ExpressionToJasTranslator in
+order to know what I am talking about). LocusEqu use structural
+induction to use the translator, so you only need to worry about the
+basic and inductive steps.
+
+\section{Known problems}
+
+Even if LocusEqu can work out a lot of examples, it has a lot of
+limitations but, luckily, some of them can be solved in near future.\\
+
+\subsection{AlgoElements whose complexity is not bounded}
+
+LocusEqu algorithm does take time when locus is a bit complex. Current
+AlgoElements implementation only gives two choices for updating the
+view. Both of them updates the view in real time, which is not useful
+when computing the algo takes more than a few milliseconds. A lagged
+user experience is not a good one, and some solution must be
+implemented.
+
+\subsubsection{Solution}
+
+Even if an algebraic solution can be implemented, it would rise
+complexity and can make LocusEqu almost useless. The suggested
+solution consists on only update LocusEqu after user has stopped
+moving elements around.
 \end{document}
